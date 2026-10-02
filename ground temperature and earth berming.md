@@ -3,19 +3,20 @@
 Ground temperatures can be of use to either warm or cool a space, since they vary less than outdoor air temperatures.
 The deeper you go, the more stable temperatures become.
 
+![Chart](images/ground_temp_rel_air_temp.svg)
 ![Chart](images/ground_temp_1.svg)
 
-![Chart](images/ground_temp_rel_air_temp.svg)
-
-
 ### Set up energy model
+#### Default
 To define where a building meets the ground, honeybee by default assigns a ```ground boundary condition``` to faces which are located below a height of 0 (z=0).
 ![Model](images/ground_bc_default.png)
 
-We can also assign a ```ground boundary condition``` with a guide surface which covers the desired faces of the model.
+#### Custom
+We can also assign a ```ground boundary condition``` with a ```guide surface``` which covers the desired faces of the model and a **```HB Properties by Guide Surface```** component.
 ![Model](images/ground_bc_custom.png)
 ![Model](images/guide_surface.png)
 
+#### Check
 To visualize, which ```boundary condition``` a face has, we can use the **```HB Label Faces```** Component:
 ![Model](images/show_bc.png)
 

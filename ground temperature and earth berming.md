@@ -6,7 +6,7 @@ The deeper you go, the more stable temperatures become.
 ![Chart](images/ground_temp_rel_air_temp.svg)
 ![Chart](images/ground_temp_1.svg)
 
-### Set up energy model
+## Set up energy model
 #### Default
 To define where a building meets the ground, honeybee by default assigns a ```ground boundary condition``` to faces which are located below a height of 0 (z=0).
 ![Model](images/ground_bc_default.png)
@@ -20,9 +20,11 @@ We can also assign a ```ground boundary condition``` with a ```guide surface``` 
 To visualize, which ```boundary condition``` a face has, we can use the **```HB Label Faces```** Component:
 ![Model](images/show_bc.png)
 
-### Set up simulation
+## Set up simulation
+#### Default
 By default, honeybee assumes a temperature of $18°C$ throughout the year for all depths.
 
+#### Custom
 To set ground temperatures by hand, use the ```add_str_``` input on the **```HB Model to OSM```** component and connect a panel with your temperatures, like so:
 ```
 Site:GroundTemperature:BuildingSurface,
@@ -44,6 +46,7 @@ Site:GroundTemperature:BuildingSurface,
 
 To do this automatically with ground temperatures from the ```EPW``` (for depths of 0.5 m, 2 m and 4 m), components are already provided in the [ground_temp_and_earth_berming.gh](ground_temp_and_earth_berming.gh) example file.
 
+#### Approximate Ground Temperatures
 For depths below 4 m, we can **approximate(!)** ground temperatures with the following formula (Labs, 1779):
 
 $T(x,t) = T_m - A_s \cdot e^{-x \sqrt{\frac{\pi}{365\alpha}}} \cdot \cos\left(\frac{2\pi}{365} \left[ t - t_o - \frac{x}{2} \sqrt{\frac{365}{\pi\alpha}} \right]\right)$, where:
@@ -55,7 +58,15 @@ $T(x,t) = T_m - A_s \cdot e^{-x \sqrt{\frac{\pi}{365\alpha}}} \cdot \cos\left(\f
 * $t_o$ = day with minimum surface temperature
 * $a$ ($\alpha$) = soil thermal diffusivity
 * $x$ = depth below the ground surface
-  
-> Use this for depths below 10 m, accuracy varies for shallower depths.
 
 Components are also provided in the example file.
+
+> Use this for depths below 10 m, accuracy varies for shallower depths.
+
+## Example File
+The provided [ground_temp_and_earth_berming.gh](ground_temp_and_earth_berming.gh) includes two experiments.
+#### Basement
+A building where you can choose if and how deep in the ground it sits. Try different depths and note the difference in energy usage. Also try to vary the climate in which the simulation is run to see differences between cold and hot climates.
+
+#### Earth Berming
+A building where you decide which sides are covered by ground and which have windows. Run trough all possibilities and note the differences in energy usage. This experiment is also a good candidate to try optimization with **```galapagos```**.

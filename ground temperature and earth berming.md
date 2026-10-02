@@ -10,6 +10,14 @@ The deeper you go, the more stable temperatures become.
 
 ### Set up energy model
 To define where a building meets the ground, honeybee by default assigns a ```ground boundary condition``` to faces which are located below a height of 0 (z=0).
+![Model](images/ground_bc_default.png)
+
+We can also assign a ```ground boundary condition``` with a guide surface which covers the desired faces of the model.
+![Model](images/ground_bc_custom.png)
+![Model](images/guide_surface.png)
+
+To visualize, which ```boundary condition``` a face has, we can use the **```HB Label Faces```** Component:
+![Model](images/show_bc.png)
 
 ### Set up simulation
 By default, honeybee assumes a temperature of $18°C$ throughout the year for all depths.

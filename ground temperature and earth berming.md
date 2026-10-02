@@ -70,3 +70,4 @@ A building where you can choose if and how deep in the ground it sits. Try diffe
 
 #### Earth Berming
 A building where you decide which sides are covered by ground and which have windows. Run trough all possibilities and note the differences in energy usage. This experiment is also a good candidate to try optimization with **```galapagos```**.
+![GH Components](images/earth_berming.png)

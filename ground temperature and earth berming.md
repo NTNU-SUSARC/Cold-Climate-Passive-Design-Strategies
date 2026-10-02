@@ -16,3 +16,4 @@ Site:GroundTemperature:BuildingSurface,
   16.5,  !- November
   17.5;  !- December
 ```
+To do this automatically with ground temperatures from the ```EPW``` (for depths of 0.5 m, 2 m and 4 m), components are already provided in the [ground_temp_and_earth_berming.gh](ground_temp_and_earth_berming.gh).
